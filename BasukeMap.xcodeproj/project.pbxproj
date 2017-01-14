@@ -7,14 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07D0E480B082B45456AFC2F5 /* Pods_BasukeMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 271005DAAA6EE99B3A62FF17 /* Pods_BasukeMap.framework */; };
 		5D1567801E27B68700A969E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D15677F1E27B68700A969E1 /* AppDelegate.swift */; };
 		5D1567821E27B68800A969E1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1567811E27B68800A969E1 /* ViewController.swift */; };
 		5D1567851E27B68A00A969E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D1567831E27B68A00A969E1 /* Main.storyboard */; };
 		5D1567871E27B68A00A969E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D1567861E27B68A00A969E1 /* Assets.xcassets */; };
 		5D15678A1E27B68B00A969E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D1567881E27B68B00A969E1 /* LaunchScreen.storyboard */; };
+		5D1567921E29A54E00A969E1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1567911E29A54E00A969E1 /* MapViewController.swift */; };
+		5D1567941E29A57200A969E1 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1567931E29A57200A969E1 /* ListViewController.swift */; };
+		5D1567961E29A5C700A969E1 /* MapPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1567951E29A5C700A969E1 /* MapPostViewController.swift */; };
+		5D1567981E29A5EF00A969E1 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1567971E29A5EF00A969E1 /* SettingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		271005DAAA6EE99B3A62FF17 /* Pods_BasukeMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BasukeMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CB7181CACFB32339F1FB324 /* Pods-BasukeMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasukeMap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BasukeMap/Pods-BasukeMap.debug.xcconfig"; sourceTree = "<group>"; };
 		5D15677C1E27B68500A969E1 /* BasukeMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasukeMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D15677F1E27B68700A969E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D1567811E27B68800A969E1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +29,11 @@
 		5D1567861E27B68A00A969E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5D1567891E27B68B00A969E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5D15678B1E27B68B00A969E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5D1567911E29A54E00A969E1 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		5D1567931E29A57200A969E1 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		5D1567951E29A5C700A969E1 /* MapPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPostViewController.swift; sourceTree = "<group>"; };
+		5D1567971E29A5EF00A969E1 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		D7529B75589C216569E534B3 /* Pods-BasukeMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasukeMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-BasukeMap/Pods-BasukeMap.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07D0E480B082B45456AFC2F5 /* Pods_BasukeMap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +53,8 @@
 			children = (
 				5D15677E1E27B68600A969E1 /* BasukeMap */,
 				5D15677D1E27B68500A969E1 /* Products */,
+				BF1A464CBF6E43AF4B486D76 /* Pods */,
+				B69A772F820485B37DE1F20F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,6 +70,10 @@
 			isa = PBXGroup;
 			children = (
 				5D15677F1E27B68700A969E1 /* AppDelegate.swift */,
+				5D1567911E29A54E00A969E1 /* MapViewController.swift */,
+				5D1567931E29A57200A969E1 /* ListViewController.swift */,
+				5D1567951E29A5C700A969E1 /* MapPostViewController.swift */,
+				5D1567971E29A5EF00A969E1 /* SettingViewController.swift */,
 				5D1567811E27B68800A969E1 /* ViewController.swift */,
 				5D1567831E27B68A00A969E1 /* Main.storyboard */,
 				5D1567861E27B68A00A969E1 /* Assets.xcassets */,
@@ -64,6 +83,23 @@
 			path = BasukeMap;
 			sourceTree = "<group>";
 		};
+		B69A772F820485B37DE1F20F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				271005DAAA6EE99B3A62FF17 /* Pods_BasukeMap.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BF1A464CBF6E43AF4B486D76 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5CB7181CACFB32339F1FB324 /* Pods-BasukeMap.debug.xcconfig */,
+				D7529B75589C216569E534B3 /* Pods-BasukeMap.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +107,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5D15678E1E27B68B00A969E1 /* Build configuration list for PBXNativeTarget "BasukeMap" */;
 			buildPhases = (
+				E1AC8B9AA9CEBDFAB270051B /* [CP] Check Pods Manifest.lock */,
 				5D1567781E27B68500A969E1 /* Sources */,
 				5D1567791E27B68500A969E1 /* Frameworks */,
 				5D15677A1E27B68500A969E1 /* Resources */,
+				988CA4E161642D5573AC7A98 /* [CP] Embed Pods Frameworks */,
+				1F39D2C8B709E6226B871DC5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,13 +170,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1F39D2C8B709E6226B871DC5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BasukeMap/Pods-BasukeMap-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		988CA4E161642D5573AC7A98 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BasukeMap/Pods-BasukeMap-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E1AC8B9AA9CEBDFAB270051B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5D1567781E27B68500A969E1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				5D1567821E27B68800A969E1 /* ViewController.swift in Sources */,
+				5D1567961E29A5C700A969E1 /* MapPostViewController.swift in Sources */,
+				5D1567921E29A54E00A969E1 /* MapViewController.swift in Sources */,
+				5D1567941E29A57200A969E1 /* ListViewController.swift in Sources */,
 				5D1567801E27B68700A969E1 /* AppDelegate.swift in Sources */,
+				5D1567981E29A5EF00A969E1 /* SettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +347,7 @@
 		};
 		5D15678F1E27B68B00A969E1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CB7181CACFB32339F1FB324 /* Pods-BasukeMap.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BasukeMap/Info.plist;
@@ -268,6 +360,7 @@
 		};
 		5D1567901E27B68B00A969E1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D7529B75589C216569E534B3 /* Pods-BasukeMap.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BasukeMap/Info.plist;
@@ -297,6 +390,7 @@
 				5D1567901E27B68B00A969E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
