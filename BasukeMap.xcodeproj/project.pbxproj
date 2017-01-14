@@ -17,6 +17,7 @@
 		5D1567941E29A57200A969E1 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1567931E29A57200A969E1 /* ListViewController.swift */; };
 		5D1567961E29A5C700A969E1 /* MapPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1567951E29A5C700A969E1 /* MapPostViewController.swift */; };
 		5D1567981E29A5EF00A969E1 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1567971E29A5EF00A969E1 /* SettingViewController.swift */; };
+		5D15679A1E29D29B00A969E1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D1567991E29D29B00A969E1 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		5D1567931E29A57200A969E1 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		5D1567951E29A5C700A969E1 /* MapPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPostViewController.swift; sourceTree = "<group>"; };
 		5D1567971E29A5EF00A969E1 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		5D1567991E29D29B00A969E1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D7529B75589C216569E534B3 /* Pods-BasukeMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasukeMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-BasukeMap/Pods-BasukeMap.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,6 +77,7 @@
 				5D1567951E29A5C700A969E1 /* MapPostViewController.swift */,
 				5D1567971E29A5EF00A969E1 /* SettingViewController.swift */,
 				5D1567811E27B68800A969E1 /* ViewController.swift */,
+				5D1567991E29D29B00A969E1 /* GoogleService-Info.plist */,
 				5D1567831E27B68A00A969E1 /* Main.storyboard */,
 				5D1567861E27B68A00A969E1 /* Assets.xcassets */,
 				5D1567881E27B68B00A969E1 /* LaunchScreen.storyboard */,
@@ -163,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D15678A1E27B68B00A969E1 /* LaunchScreen.storyboard in Resources */,
+				5D15679A1E29D29B00A969E1 /* GoogleService-Info.plist in Resources */,
 				5D1567871E27B68A00A969E1 /* Assets.xcassets in Resources */,
 				5D1567851E27B68A00A969E1 /* Main.storyboard in Resources */,
 			);
