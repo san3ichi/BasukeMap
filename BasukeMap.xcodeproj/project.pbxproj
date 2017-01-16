@@ -138,6 +138,7 @@
 				TargetAttributes = {
 					5D15677B1E27B68500A969E1 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = JPU48P9BR3;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -354,6 +355,7 @@
 			baseConfigurationReference = 5CB7181CACFB32339F1FB324 /* Pods-BasukeMap.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = JPU48P9BR3;
 				INFOPLIST_FILE = BasukeMap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.techacademy.kenren.BasukeMap;
@@ -367,6 +369,7 @@
 			baseConfigurationReference = D7529B75589C216569E534B3 /* Pods-BasukeMap.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = JPU48P9BR3;
 				INFOPLIST_FILE = BasukeMap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.techacademy.kenren.BasukeMap;
