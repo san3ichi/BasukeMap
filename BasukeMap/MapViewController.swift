@@ -8,34 +8,93 @@
 
 import UIKit
 import GoogleMaps
+import CoreLocation
 
-class MapViewController: UIViewController, GMSMapViewDelegate{
+class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate{
 
-    var gmaps : GMSMapView!
     var googleMap : GMSMapView!
+    
+    var myLocationManager: CLLocationManager!
+    // 緯度表示用のラベル.
+    var myLatitudeLabel: UILabel!
+    
+    // 経度表示用のラベル.
+    var myLongitudeLabel: UILabel!
+    
+    
+    // 取得した緯度を保持するインスタンス
+    var latitude: CLLocationDegrees!
+    // 取得した経度を保持するインスタンス
+    var longitude: CLLocationDegrees!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         
-      /*  // MapViewを生成する.
-        gmaps = GMSMapView(frame: CGRect(x:0, y:0, width:self.view.bounds.width, height:self.view.bounds.height))
+        // フィールドの初期化
+        myLocationManager = CLLocationManager()
+        latitude = CLLocationDegrees()
+        longitude = CLLocationDegrees()
         
-        // MapViewをviewに追加する.
-        self.view.addSubview(gmaps)
-*/
+        
+        // CLLocationManagerをDelegateに指定
+        myLocationManager.delegate = self
+        
+        // 位置情報取得の許可を求めるメッセージの表示．必須．
+        myLocationManager.requestAlwaysAuthorization()
+        
+        
+        // セキュリティ認証のステータスを取得.
+        let status = CLLocationManager.authorizationStatus()
+        print("authorizationStatus:\(status.rawValue)");
+        
+        // まだ認証が得られていない場合は、認証ダイアログを表示
+        // (このAppの使用中のみ許可の設定) 説明を共通の項目を参照
+        if(status == .notDetermined) {
+            self.myLocationManager.requestWhenInUseAuthorization()
+        }
+        
+        
+        // 位置情報の精度を指定．任意，
+        myLocationManager.desiredAccuracy = kCLLocationAccuracyBest
+        // 位置情報取得間隔を指定．指定した値（メートル）移動したら位置情報を更新する．任意．
+        myLocationManager.distanceFilter = 100
+        
+        // GPSの使用を開始する
+        myLocationManager.startUpdatingLocation()
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+          // MapViewを生成する.
+   /*      googleMap = GMSMapView(frame: CGRect(x:0, y:0, width:self.view.bounds.width, height:self.view.bounds.height))
+        
+        googleMap.delegate = self
+        
+        // カメラを生成.
+   /*     let camera: GMSCameraPosition = GMSCameraPosition.camera(withLatitude: lat,longitude: lon, zoom: zoom)
+        
+        googleMap.camera = camera
+     */
+        
+         // MapViewをviewに追加する.
+         self.view.addSubview(googleMap)
+        */
+        
+ 
         // 緯度.
         let lat: CLLocationDegrees = 37.508435
         
         // 経度.
         let lon: CLLocationDegrees = 139.930696
-        
+ 
         // ズームレベル.
         let zoom: Float = 15
         
         // カメラを生成.
-        let camera: GMSCameraPosition = GMSCameraPosition.camera(withLatitude: lat,longitude: lon, zoom: zoom)
+        let camera: GMSCameraPosition = GMSCameraPosition.camera(withLatitude: latitude,longitude: longitude, zoom: zoom)
         
         // MapViewを生成.
         googleMap = GMSMapView(frame: CGRect(x:0, y:0, width:self.view.bounds.width, height:self.view.bounds.height))
@@ -46,13 +105,91 @@ class MapViewController: UIViewController, GMSMapViewDelegate{
         // viewにMapViewを追加.
         self.view.addSubview(googleMap)
         
-        
+       // setupPosition()
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+  /*  func setupPosition(){
+ 
+        // CLLocationManagerをDelegateに指定
+        myLocationManager.delegate = self
+        
+        // 位置情報取得の許可を求めるメッセージの表示．必須．
+        myLocationManager.requestAlwaysAuthorization()
+        
+        
+        // セキュリティ認証のステータスを取得.
+        let status = CLLocationManager.authorizationStatus()
+        print("authorizationStatus:\(status.rawValue)");
+        
+        // まだ認証が得られていない場合は、認証ダイアログを表示
+        // (このAppの使用中のみ許可の設定) 説明を共通の項目を参照
+        if(status == .notDetermined) {
+            self.myLocationManager.requestWhenInUseAuthorization()
+        }
+
+        
+        // 位置情報の精度を指定．任意，
+         myLocationManager.desiredAccuracy = kCLLocationAccuracyBest
+        // 位置情報取得間隔を指定．指定した値（メートル）移動したら位置情報を更新する．任意．
+         myLocationManager.distanceFilter = 100
+    
+        // GPSの使用を開始する
+        myLocationManager.startUpdatingLocation()
+ 
+    }
+ */
+    
+ /*   /*認証に変化があった際に呼ばれる*/
+    private func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        
+        print("didChangeAuthorizationStatus");
+        
+        // 認証のステータスをログで表示.
+        var statusStr: String = "";
+        
+        switch (status) {
+        case .notDetermined:
+            statusStr = "未認証の状態"
+        case .restricted:
+            statusStr = "制限された状態"
+        case .denied:
+            statusStr = "許可しない"
+        case .authorizedAlways:
+            statusStr = "常に使用を許可"
+        case .authorizedWhenInUse:
+            statusStr = "このAppの使用中のみ許可"
+        }
+        print(" CLAuthorizationStatus: \(statusStr)")
+    }
+ */
+
+     /*位置情報取得に成功したときに呼び出されるデリゲート*/
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let newLocation = locations.last
+        // 取得した緯度がnewLocation.coordinate.longitudeに格納されている
+        latitude = newLocation!.coordinate.latitude
+        // 取得した経度がnewLocation.coordinate.longitudeに格納されている
+        longitude = newLocation!.coordinate.longitude
+        
+        // 取得した緯度・経度をLogに表示
+        NSLog("latiitude: \(latitude) , longitude: \(longitude)")
+        
+        // GPSの使用を停止する．停止しない限りGPSは実行され，指定間隔で更新され続ける．
+        // lm.stopUpdatingLocation()
+    }
+    
+    /*位置情報取得失敗時に実行される関数*/
+    func locationManager(_ manager: CLLocationManager,didFailWithError error: Error){
+        print("error")
+    }
+    
     
 
     /*
