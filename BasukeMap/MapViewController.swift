@@ -15,13 +15,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
     var googleMap : GMSMapView!
     
     var myLocationManager: CLLocationManager!
-    // 緯度表示用のラベル.
-    var myLatitudeLabel: UILabel!
-    
-    // 経度表示用のラベル.
-    var myLongitudeLabel: UILabel!
-    
-    
+
     // 取得した緯度を保持するインスタンス
     var latitude: CLLocationDegrees!
     // 取得した経度を保持するインスタンス
@@ -30,7 +24,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         // フィールドの初期化
         myLocationManager = CLLocationManager()
         latitude = CLLocationDegrees()
@@ -62,34 +56,14 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
         
         // GPSの使用を開始する
         myLocationManager.startUpdatingLocation()
+ 
+        
     }
     
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-          // MapViewを生成する.
-   /*      googleMap = GMSMapView(frame: CGRect(x:0, y:0, width:self.view.bounds.width, height:self.view.bounds.height))
-        
-        googleMap.delegate = self
-        
-        // カメラを生成.
-   /*     let camera: GMSCameraPosition = GMSCameraPosition.camera(withLatitude: lat,longitude: lon, zoom: zoom)
-        
-        googleMap.camera = camera
-     */
-        
-         // MapViewをviewに追加する.
-         self.view.addSubview(googleMap)
-        */
-        
- 
-        // 緯度.
-        let lat: CLLocationDegrees = 37.508435
-        
-        // 経度.
-        let lon: CLLocationDegrees = 139.930696
- 
+
         // ズームレベル.
         let zoom: Float = 15
         
@@ -102,10 +76,12 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
         // MapViewにカメラを追加.
         googleMap.camera = camera
         
+        googleMap.isMyLocationEnabled = true
+        
+        googleMap.settings.myLocationButton = true
+        
         // viewにMapViewを追加.
         self.view.addSubview(googleMap)
-        
-       // setupPosition()
     }
     
     
@@ -115,36 +91,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
         // Dispose of any resources that can be recreated.
     }
     
-  /*  func setupPosition(){
- 
-        // CLLocationManagerをDelegateに指定
-        myLocationManager.delegate = self
-        
-        // 位置情報取得の許可を求めるメッセージの表示．必須．
-        myLocationManager.requestAlwaysAuthorization()
-        
-        
-        // セキュリティ認証のステータスを取得.
-        let status = CLLocationManager.authorizationStatus()
-        print("authorizationStatus:\(status.rawValue)");
-        
-        // まだ認証が得られていない場合は、認証ダイアログを表示
-        // (このAppの使用中のみ許可の設定) 説明を共通の項目を参照
-        if(status == .notDetermined) {
-            self.myLocationManager.requestWhenInUseAuthorization()
-        }
-
-        
-        // 位置情報の精度を指定．任意，
-         myLocationManager.desiredAccuracy = kCLLocationAccuracyBest
-        // 位置情報取得間隔を指定．指定した値（メートル）移動したら位置情報を更新する．任意．
-         myLocationManager.distanceFilter = 100
-    
-        // GPSの使用を開始する
-        myLocationManager.startUpdatingLocation()
- 
-    }
- */
     
  /*   /*認証に変化があった際に呼ばれる*/
     private func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
@@ -190,6 +136,15 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
         print("error")
     }
     
+    /*
+    func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
+        let marker = GMSMarker(position: coordinate)
+        marker.opacity = 0.6
+        marker.title = "Current Location"
+        marker.snippet = ""
+        marker.map = mapView
+    }
+    */
     
 
     /*
