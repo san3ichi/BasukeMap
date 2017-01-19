@@ -80,6 +80,8 @@ class MapPostViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
         
         googleMap.settings.myLocationButton = true
         
+        googleMap.delegate = self
+        
         // viewにMapViewを追加.
         self.view.addSubview(googleMap)
     }
@@ -129,6 +131,8 @@ class MapPostViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
         
         // GPSの使用を停止する．停止しない限りGPSは実行され，指定間隔で更新され続ける．
         // lm.stopUpdatingLocation()
+        
+        googleMap.animate(toLocation: CLLocationCoordinate2DMake(latitude, longitude))
     }
     
     /*位置情報取得失敗時に実行される関数*/
@@ -136,17 +140,38 @@ class MapPostViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
         print("error")
     }
     
-    
+    /*長押しでピンを刺す関数*/
      func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
+        
+        mapView.clear()
+        
         let marker = GMSMarker(position: coordinate)
+
         marker.opacity = 0.6
         marker.title = "Current Location"
         marker.snippet = ""
         marker.map = mapView
-     }
-    
-    
+        
+        print("\(coordinate.latitude),\(coordinate.longitude)")
+        
+        let postViewController = self.storyboard?.instantiateViewController(withIdentifier: "PostView") as! PostViewController
+        postViewController.latitude = coordinate.latitude
+        postViewController.longitude = coordinate.longitude
+        self.present(postViewController, animated: true, completion: nil)
 
+        
+    }
+
+    
+/*    /*マーカーの情報ウィンドウがタップされた後に呼び出されます。*/
+    func mapView(mapView: GMSMapView!,didTapInfoWindowOfMarker marker: GMSMarker!){
+        let postViewController = self.storyboard?.instantiateViewController(withIdentifier: "PostView") as! PostViewController
+        //     postViewController.latitude = coordinate.latitude
+        //     postViewController.longitude = coordinate.longitude
+        self.present(postViewController, animated: true, completion: nil)
+        
+    }
+*/
     /*
     // MARK: - Navigation
 

@@ -80,6 +80,8 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
         
         googleMap.settings.myLocationButton = true
         
+        googleMap.delegate = self
+        
         // viewにMapViewを追加.
         self.view.addSubview(googleMap)
     }
@@ -129,22 +131,14 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
         
         // GPSの使用を停止する．停止しない限りGPSは実行され，指定間隔で更新され続ける．
         // lm.stopUpdatingLocation()
+        
+       googleMap.animate(toLocation: CLLocationCoordinate2DMake(latitude, longitude))
     }
     
     /*位置情報取得失敗時に実行される関数*/
     func locationManager(_ manager: CLLocationManager,didFailWithError error: Error){
         print("error")
     }
-    
-    /*
-    func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
-        let marker = GMSMarker(position: coordinate)
-        marker.opacity = 0.6
-        marker.title = "Current Location"
-        marker.snippet = ""
-        marker.map = mapView
-    }
-    */
     
 
     /*
