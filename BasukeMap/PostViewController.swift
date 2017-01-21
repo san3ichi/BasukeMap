@@ -12,6 +12,7 @@ import FirebaseAuth
 import GoogleMaps
 import CoreLocation
 import ESTabBarController
+import SVProgressHUD
 
 class PostViewController: UIViewController,GMSMapViewDelegate, CLLocationManagerDelegate {
     @IBOutlet weak var latitudeLabel: UILabel!
@@ -31,16 +32,35 @@ class PostViewController: UIViewController,GMSMapViewDelegate, CLLocationManager
         }
         
         
+        // postDataに必要な情報を取得しておく
+        let time = NSDate.timeIntervalSinceReferenceDate
+        let name = FIRAuth.auth()?.currentUser?.displayName
+        
+        // 辞書を作成してFirebaseに保存する
+        let postRef = FIRDatabase.database().reference().child(Const.PostPath)
+        let postData = ["latitude": latitudeLabel.text!, "longitude": longitudeLabel.text!, "placename": placenameText.text!, "ringnumber": ringnumberText.text!, "details": detailsTextView.text!, "time": String(time), "name": name!]
+        postRef.childByAutoId().setValue(postData)
+        
+        // HUDで投稿完了を表示する
+        SVProgressHUD.showSuccess(withStatus: "投稿しました")
+        
+        // 全てのモーダルを閉じる
+        UIApplication.shared.keyWindow?.rootViewController?.dismiss(animated: true, completion: nil)
+        
+        
     }
     
     @IBAction func unwindButton(_ sender: Any) {
-        let mapPostViewController = self.storyboard?.instantiateViewController(withIdentifier: "MapPost") as! MapPostViewController
+     /*   let mapPostViewController = self.storyboard?.instantiateViewController(withIdentifier: "MapPost") as! MapPostViewController
 
         self.present(mapPostViewController, animated: true, completion: nil)
         
         
         let tabBarController = parent as! ESTabBarController
         tabBarController.setSelectedIndex(2, animated: false)
+*/
+        // 画面を閉じる
+        dismiss(animated: true, completion: nil)
     }
     
     var googleMap : GMSMapView!

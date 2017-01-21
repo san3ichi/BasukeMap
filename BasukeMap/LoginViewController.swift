@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import SVProgressHUD
+import ESTabBarController
 
 class LoginViewController: UIViewController {
 
@@ -17,6 +18,13 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var displayNameTextField: UITextField!
     
+    @IBAction func cancelButton(_ sender: Any) {
+        let mapViewController = self.storyboard?.instantiateViewController(withIdentifier: "Map") as! MapViewController
+        self.present(mapViewController, animated: true, completion: nil)
+    
+        let tabBarController = parent as! ESTabBarController
+        tabBarController.setSelectedIndex(0, animated: false)
+    }
     
     // ログインボタンをタップしたときに呼ばれるメソッド
     @IBAction func handleLoginButton(_ sender: Any) {

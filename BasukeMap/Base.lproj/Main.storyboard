@@ -311,6 +311,9 @@
                                                 <rect key="frame" x="16" y="7" width="83" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="キャンセル"/>
+                                                <connections>
+                                                    <action selector="cancelButton:" destination="IhM-nE-xFL" eventType="touchUpInside" id="zN9-AX-gIl"/>
+                                                </connections>
                                             </button>
                                         </barButtonItem>
                                     </navigationItem>
