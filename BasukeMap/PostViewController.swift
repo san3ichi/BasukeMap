@@ -11,10 +11,15 @@ import Firebase
 import FirebaseAuth
 import GoogleMaps
 import CoreLocation
+import ESTabBarController
 
 class PostViewController: UIViewController,GMSMapViewDelegate, CLLocationManagerDelegate {
     @IBOutlet weak var latitudeLabel: UILabel!
     @IBOutlet weak var longitudeLabel: UILabel!
+    
+    @IBOutlet weak var placenameText: UITextField!
+    @IBOutlet weak var ringnumberText: UITextField!
+    @IBOutlet weak var detailsTextView: UITextView!
     
     @IBAction func postButton(_ sender: Any) {
         
@@ -29,9 +34,13 @@ class PostViewController: UIViewController,GMSMapViewDelegate, CLLocationManager
     }
     
     @IBAction func unwindButton(_ sender: Any) {
-        let MapPostViewController = self.storyboard?.instantiateViewController(withIdentifier: "MapPost") as! MapPostViewController
+        let mapPostViewController = self.storyboard?.instantiateViewController(withIdentifier: "MapPost") as! MapPostViewController
 
-        self.present(MapPostViewController, animated: true, completion: nil)
+        self.present(mapPostViewController, animated: true, completion: nil)
+        
+        
+        let tabBarController = parent as! ESTabBarController
+        tabBarController.setSelectedIndex(2, animated: false)
     }
     
     var googleMap : GMSMapView!
