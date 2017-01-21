@@ -7,11 +7,33 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 import GoogleMaps
 import CoreLocation
 
 class PostViewController: UIViewController,GMSMapViewDelegate, CLLocationManagerDelegate {
+    @IBOutlet weak var latitudeLabel: UILabel!
+    @IBOutlet weak var longitudeLabel: UILabel!
+    
+    @IBAction func postButton(_ sender: Any) {
+        
+        // ログインしていなければログインの画面を表示する
+        if FIRAuth.auth()?.currentUser == nil {
+            let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "Login")
+            self.present(loginViewController!, animated: true, completion: nil)
+            
+        }
+        
+        
+    }
+    
+    @IBAction func unwindButton(_ sender: Any) {
+        let MapPostViewController = self.storyboard?.instantiateViewController(withIdentifier: "MapPost") as! MapPostViewController
 
+        self.present(MapPostViewController, animated: true, completion: nil)
+    }
+    
     var googleMap : GMSMapView!
     
     // 取得した緯度を保持するインスタンス
@@ -23,8 +45,12 @@ class PostViewController: UIViewController,GMSMapViewDelegate, CLLocationManager
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        latitude = CLLocationDegrees()
-        longitude = CLLocationDegrees()
+      //  latitude = CLLocationDegrees()
+      //  longitude = CLLocationDegrees()
+        
+        latitudeLabel.text = "\(latitude)"
+        longitudeLabel.text = "\(longitude)"
+        
 
         // Do any additional setup after loading the view.
     }
@@ -36,6 +62,8 @@ class PostViewController: UIViewController,GMSMapViewDelegate, CLLocationManager
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        
         
         // ズームレベル.
         let zoom: Float = 15

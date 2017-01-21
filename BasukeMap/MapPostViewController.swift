@@ -172,6 +172,8 @@ class MapPostViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
         
     }
 */
+    
+    
     /*
     // MARK: - Navigation
 

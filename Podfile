@@ -11,5 +11,6 @@ target 'BasukeMap' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod ‘GoogleMaps’
+  pod 'SVProgressHUD'
 
 end
