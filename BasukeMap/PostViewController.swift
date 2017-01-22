@@ -22,6 +22,14 @@ class PostViewController: UIViewController,GMSMapViewDelegate, CLLocationManager
     @IBOutlet weak var ringnumberText: UITextField!
     @IBOutlet weak var detailsTextView: UITextView!
     
+    
+    var googleMap : GMSMapView!
+    var latitude: CLLocationDegrees!    // 取得した緯度を保持するインスタンス
+    var longitude: CLLocationDegrees!   // 取得した経度を保持するインスタンス
+    
+    
+    
+    /*投稿ボタンを押したときに呼ばれる*/
     @IBAction func postButton(_ sender: Any) {
         
         // ログインしていなければログインの画面を表示する
@@ -46,10 +54,10 @@ class PostViewController: UIViewController,GMSMapViewDelegate, CLLocationManager
         
         // 全てのモーダルを閉じる
         UIApplication.shared.keyWindow?.rootViewController?.dismiss(animated: true, completion: nil)
-        
-        
     }
     
+    
+    /*戻るボタンを押したときに呼ばれる*/
     @IBAction func unwindButton(_ sender: Any) {
      /*   let mapPostViewController = self.storyboard?.instantiateViewController(withIdentifier: "MapPost") as! MapPostViewController
 
@@ -62,13 +70,6 @@ class PostViewController: UIViewController,GMSMapViewDelegate, CLLocationManager
         // 画面を閉じる
         dismiss(animated: true, completion: nil)
     }
-    
-    var googleMap : GMSMapView!
-    
-    // 取得した緯度を保持するインスタンス
-    var latitude: CLLocationDegrees!
-    // 取得した経度を保持するインスタンス
-    var longitude: CLLocationDegrees!
     
     
     override func viewDidLoad() {

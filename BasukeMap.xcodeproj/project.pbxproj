@@ -21,6 +21,7 @@
 		5D1DB6811E30EAFD000CDB93 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1DB6801E30EAFC000CDB93 /* PostViewController.swift */; };
 		5D1DB6831E332CF9000CDB93 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1DB6821E332CF8000CDB93 /* LoginViewController.swift */; };
 		5D1DB6851E340791000CDB93 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1DB6841E340791000CDB93 /* Const.swift */; };
+		5D1DB6871E3556E6000CDB93 /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1DB6861E3556E6000CDB93 /* PostData.swift */; };
 		5D3E8EFC1E2CF6CF00D47A29 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D3E8EFB1E2CF6CF00D47A29 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		5D1DB6801E30EAFC000CDB93 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		5D1DB6821E332CF8000CDB93 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5D1DB6841E340791000CDB93 /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		5D1DB6861E3556E6000CDB93 /* PostData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
 		5D3E8EFB1E2CF6CF00D47A29 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D7529B75589C216569E534B3 /* Pods-BasukeMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasukeMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-BasukeMap/Pods-BasukeMap.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +87,7 @@
 				5D1567931E29A57200A969E1 /* ListViewController.swift */,
 				5D1567951E29A5C700A969E1 /* MapPostViewController.swift */,
 				5D1DB6801E30EAFC000CDB93 /* PostViewController.swift */,
+				5D1DB6861E3556E6000CDB93 /* PostData.swift */,
 				5D1DB6821E332CF8000CDB93 /* LoginViewController.swift */,
 				5D1567971E29A5EF00A969E1 /* SettingViewController.swift */,
 				5D1567811E27B68800A969E1 /* ViewController.swift */,
@@ -246,6 +249,7 @@
 				5D1DB6811E30EAFD000CDB93 /* PostViewController.swift in Sources */,
 				5D1567921E29A54E00A969E1 /* MapViewController.swift in Sources */,
 				5D1DB6831E332CF9000CDB93 /* LoginViewController.swift in Sources */,
+				5D1DB6871E3556E6000CDB93 /* PostData.swift in Sources */,
 				5D1567941E29A57200A969E1 /* ListViewController.swift in Sources */,
 				5D1567801E27B68700A969E1 /* AppDelegate.swift in Sources */,
 				5D1567981E29A5EF00A969E1 /* SettingViewController.swift in Sources */,
