@@ -18,6 +18,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var displayNameTextField: UITextField!
     
+    // キャンセルボタンをタップしたときに呼ばれるメソッド
     @IBAction func cancelButton(_ sender: Any) {
         let mapViewController = self.storyboard?.instantiateViewController(withIdentifier: "Map") as! MapViewController
         self.present(mapViewController, animated: true, completion: nil)

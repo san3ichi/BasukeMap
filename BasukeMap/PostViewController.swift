@@ -37,23 +37,22 @@ class PostViewController: UIViewController,GMSMapViewDelegate, CLLocationManager
             let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "Login")
             self.present(loginViewController!, animated: true, completion: nil)
             
+        }else{
+            // postDataに必要な情報を取得しておく
+            let time = NSDate.timeIntervalSinceReferenceDate
+            let name = FIRAuth.auth()?.currentUser?.displayName
+        
+            // 辞書を作成してFirebaseに保存する
+            let postRef = FIRDatabase.database().reference().child(Const.PostPath)
+            let postData = ["latitude": latitudeLabel.text!, "longitude": longitudeLabel.text!, "placename": placenameText.text!, "ringnumber": ringnumberText.text!, "details": detailsTextView.text!, "time": String(time), "name": name!]
+            postRef.childByAutoId().setValue(postData)
+        
+            // HUDで投稿完了を表示する
+            SVProgressHUD.showSuccess(withStatus: "投稿しました")
+        
+            // 全てのモーダルを閉じる
+            UIApplication.shared.keyWindow?.rootViewController?.dismiss(animated: true, completion: nil)
         }
-        
-        
-        // postDataに必要な情報を取得しておく
-        let time = NSDate.timeIntervalSinceReferenceDate
-        let name = FIRAuth.auth()?.currentUser?.displayName
-        
-        // 辞書を作成してFirebaseに保存する
-        let postRef = FIRDatabase.database().reference().child(Const.PostPath)
-        let postData = ["latitude": latitudeLabel.text!, "longitude": longitudeLabel.text!, "placename": placenameText.text!, "ringnumber": ringnumberText.text!, "details": detailsTextView.text!, "time": String(time), "name": name!]
-        postRef.childByAutoId().setValue(postData)
-        
-        // HUDで投稿完了を表示する
-        SVProgressHUD.showSuccess(withStatus: "投稿しました")
-        
-        // 全てのモーダルを閉じる
-        UIApplication.shared.keyWindow?.rootViewController?.dismiss(animated: true, completion: nil)
     }
     
     
