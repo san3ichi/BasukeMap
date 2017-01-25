@@ -148,26 +148,28 @@ class MapPostViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
         let marker = GMSMarker(position: coordinate)
 
         marker.opacity = 0.6
-        marker.title = "Current Location"
-        marker.snippet = ""
+        marker.title = "新しいリング追加"
+        marker.snippet = "投稿する場合はタップ"
         marker.map = mapView
         
         print("\(coordinate.latitude),\(coordinate.longitude)")
         
-        let postViewController = self.storyboard?.instantiateViewController(withIdentifier: "PostView") as! PostViewController
+        latitude = coordinate.latitude
+        longitude = coordinate.longitude
+        
+     /*   let postViewController = self.storyboard?.instantiateViewController(withIdentifier: "PostView") as! PostViewController
         postViewController.latitude = coordinate.latitude
         postViewController.longitude = coordinate.longitude
-        self.present(postViewController, animated: true, completion: nil)
+        self.present(postViewController, animated: true, completion: nil)*/
 
         
     }
 
-    
     /*マーカーの情報ウィンドウがタップされた後に呼び出されます。*/
-     func mapView(_ mapView: GMSMapView,didTapInfoWindowOf marker: GMSMarker){
+    func mapView(_ mapView: GMSMapView,didTapInfoWindowOf marker: GMSMarker){
         let postViewController = self.storyboard?.instantiateViewController(withIdentifier: "PostView") as! PostViewController
-     //     postViewController.latitude = coordinate.latitude
-     //     postViewController.longitude = coordinate.longitude
+        postViewController.latitude = latitude
+        postViewController.longitude = longitude
         self.present(postViewController, animated: true, completion: nil)
     }
 
