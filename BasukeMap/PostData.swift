@@ -12,9 +12,6 @@ import FirebaseDatabase
 import CoreLocation
 
 
- let postData = ["latitude": latitudeLabel.text!, "longitude": longitudeLabel.text!, "placename": placenameText.text!, "ringnumber": ringnumberText.text!, "details": detailsTextView.text!, "time": String(time), "name": name!]
-
-
 class PostData: NSObject {
     var id: String?
     var latitude: CLLocationDegrees!    // 取得した緯度を保持するインスタンス

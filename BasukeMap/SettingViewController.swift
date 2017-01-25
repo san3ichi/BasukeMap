@@ -13,6 +13,8 @@ import FirebaseAuth
 import SVProgressHUD
 
 class SettingViewController: UIViewController {
+    var loginFlag = false
+    
     @IBOutlet weak var displayNameTextField: UITextField!
 
     @IBAction func handleChangeButton(_ sender: Any) {
@@ -71,21 +73,29 @@ class SettingViewController: UIViewController {
         super.viewDidAppear(animated)
         
         if FIRAuth.auth()?.currentUser == nil {
-            // ログインしていなければログインの画面を表示する
-            // viewDidAppear内でpresent()を呼び出しても表示されないためメソッドが終了してから呼ばれるようにする
-            DispatchQueue.main.async {
-                let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "Login")
-                self.present(loginViewController!, animated: true, completion: nil)
+            if ( self.loginFlag == false ) {
+                // ログインしていなければログインの画面を表示する
+                // viewDidAppear内でpresent()を呼び出しても表示されないためメソッドが終了してから呼ばれるようにする
+                DispatchQueue.main.async {
+                    let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "Login")
+                    self.present(loginViewController!, animated: true, completion: nil)
+                    self.loginFlag = true
+                }
+            }
+            else {
+                self.loginFlag = false
+                let tabBarController = parent as! ESTabBarController
+                tabBarController.setSelectedIndex(0, animated: false)
+            }
+            
+        }else {
+            // 表示名を取得してTextFieldに設定する
+            let user = FIRAuth.auth()?.currentUser
+            if let user = user {
+                displayNameTextField.text = user.displayName
             }
         }
-        
-        // 表示名を取得してTextFieldに設定する
-        let user = FIRAuth.auth()?.currentUser
-        if let user = user {
-            displayNameTextField.text = user.displayName
-        }
     }
-
     
 
     override func didReceiveMemoryWarning() {

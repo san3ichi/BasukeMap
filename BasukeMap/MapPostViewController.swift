@@ -163,15 +163,14 @@ class MapPostViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
     }
 
     
-/*    /*マーカーの情報ウィンドウがタップされた後に呼び出されます。*/
-    func mapView(mapView: GMSMapView!,didTapInfoWindowOfMarker marker: GMSMarker!){
+    /*マーカーの情報ウィンドウがタップされた後に呼び出されます。*/
+     func mapView(_ mapView: GMSMapView,didTapInfoWindowOf marker: GMSMarker){
         let postViewController = self.storyboard?.instantiateViewController(withIdentifier: "PostView") as! PostViewController
-        //     postViewController.latitude = coordinate.latitude
-        //     postViewController.longitude = coordinate.longitude
+     //     postViewController.latitude = coordinate.latitude
+     //     postViewController.longitude = coordinate.longitude
         self.present(postViewController, animated: true, completion: nil)
-        
     }
-*/
+
     
     
     /*
